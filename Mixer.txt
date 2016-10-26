@@ -1,0 +1,6 @@
+Description: Detects when the batch needs stirring. 
+
+1. Shine top LED -> record top photodiode reading
+2. Shine bot LED -> record bot photodiode reading
+3. Compare top and bot readings
+4. If gradient above set threshold, activate mixer

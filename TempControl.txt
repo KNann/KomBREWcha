@@ -1,0 +1,8 @@
+Description: This will perform the following functions recursively:
+1. Read the temperature
+2. Compare temperature reading to set temperature setting
+3. Turn on cooling hardware if temperature is 1C above set threshold
+4. Turn off cooling hardware if temberature is 1C below set threshold
+5. Alert system for dysfunctional cooling hardware: After the first 
+instance where the set temperature is achieved, beep every 5s as long 
+as temperature is 2C or more above the temperature setting

@@ -1,0 +1,13 @@
+Description: Shine light through samples periodically (~every 6hrs) to measure change 
+in light absorbance over time to track brew maturity.
+
+1. Time limit reached -> Turn on Red LED/Laser
+2. Read Photodiode output -> Assign Red reading
+3. Turn on Green LED/Laser
+4. Read Photodiode output -> Assign Green reading
+5. Record readings into vector
+6. Measure change from last reading. When change is below a set threshold, and reading is 
+above a set threshold, sound alert to indicate done brew
+6*. Alternatively, R:G ratio could be used to determine optimal brew completion
+*The first purpose of these readings is assess the metrics by which the brew is complete,
+according to the relation between the readings and taste
