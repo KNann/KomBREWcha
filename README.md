@@ -3,7 +3,7 @@ Bioe 421/521 2016 Final Project. Panda Panda Panda
 
 
 
-Brainstorm:
+##Brainstorm:
 
 For our final project, we will be designing a system to improve the consistency 
 of small-batch kombucha brewing. Preliminary observations demonstrate that as 
