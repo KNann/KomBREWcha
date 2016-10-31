@@ -1,4 +1,5 @@
 #!/usr/bin/python
+#original file from MarkSolters/rainbow-vision on github.com
 
 import numpy as np
 import mpl_toolkits.mplot3d.axes3d as p3
@@ -7,7 +8,7 @@ import colorsys
 from PIL import Image
 
 # (1) Import the file to be analyzed!
-img_file = Image.open("thedress.jpg")
+img_file = Image.open("test.jpg")
 img = img_file.load()
 
 # (2) Construct a blank matrix representing the pixels in the image
