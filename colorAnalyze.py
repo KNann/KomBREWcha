@@ -1,6 +1,15 @@
 #!/usr/bin/python
 
-file = open('colorsLog.txt','r')
+f = open('colorsLog.txt')
+
+
+line = f.readline()
+
+while line:
+    print line
+    line = f.readline()
+f.close()
+##print data 
 
 #reads the most recent line in the file
 # by | delimiters:
@@ -8,7 +17,16 @@ file = open('colorsLog.txt','r')
 ### second column: R value
 ### third column: G value
 ### fourth column: B value
-print file.readline()
+
+
+##recent = file.readline()
+##print recent
+##
+##print ""
+##
+##vars = recent.split("|")
+##print vars
+
 
 # ( )   Plot the graph!
 # fig = plt.figure()
