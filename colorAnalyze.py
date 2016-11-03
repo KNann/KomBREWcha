@@ -9,20 +9,42 @@ f = open('colorsLog.txt')
 
 line = f.readline()
 
-t = line.split("|")[0]
-R = line.split("|")[1]
-G = line.split("|")[2]
-B = line.split("|")[3]
-print t
-print R
-print G
-print B
+while line:
+    #print line
+##    t = line.split("|")[0]
+##    
+##    time.append(t)
+    Rstr = line.split("|")[1]
+    R = float(Rstr)
+    Rval.append(R)
+    Gstr = line.split("|")[2]
+    G = float(Gstr)
+    Gval.append(G)
+    Bstr = line.split("|")[3]
+    B = float(Bstr)
+    Bval.append(B)
+    line = f.readline()
+f.close()
+ 
+print time
+print Rval
+print Gval
 
-##while line:
-##    print line
-##    line = f.readline()
-##f.close()
-##print data 
+Rlast = Rval[-1]
+Glast = Gval[-1]
+print Rlast
+print Glast
+
+complete = 0
+
+Rthresh = 60
+Gthresh = 75
+if Rlast < Rthresh:
+    complete = 1
+elif Glast > Gthresh:
+    complete = 1
+
+print complete
 
 #reads the most recent line in the file
 # by | delimiters:
@@ -31,14 +53,6 @@ print B
 ### third column: G value
 ### fourth column: B value
 
-
-##recent = file.readline()
-##print recent
-##
-##print ""
-##
-##vars = recent.split("|")
-##print vars
 
 
 # ( )   Plot the graph!
