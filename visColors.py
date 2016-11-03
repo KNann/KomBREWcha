@@ -8,7 +8,7 @@ import colorsys
 from PIL import Image
 
 # (1) Import the file to be analyzed!
-img_file = Image.open("thedress.jpg")
+img_file = Image.open("MatureBrew.jpg")
 img = img_file.load()
 
 # (2) Construct a blank matrix representing the pixels in the image
@@ -69,8 +69,8 @@ avgB = 0
 for i in range(colorCeiling):
   if colorMin <= i <= colorMax:
     avgR += colours[i][0]
-    avgB += colours[i][1]
-    avgG += colours[i][2]
+    avgG += colours[i][1]
+    avgB += colours[i][2]
 
 
 #find the average RGB value for a given section and write it to your input file

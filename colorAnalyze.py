@@ -2,6 +2,12 @@
 
 file = open('colorsLog.txt','r')
 
+#reads the most recent line in the file
+# by | delimiters:
+### first column: date stamp
+### second column: R value
+### third column: G value
+### fourth column: B value
 print file.readline()
 
 # ( )   Plot the graph!
