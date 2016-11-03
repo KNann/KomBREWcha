@@ -1,14 +1,27 @@
 #!/usr/bin/python
 
-f = open('colorsLog.txt')
+time = []
+Rval = []
+Gval = []
+Bval = []
 
+f = open('colorsLog.txt')
 
 line = f.readline()
 
-while line:
-    print line
-    line = f.readline()
-f.close()
+t = line.split("|")[0]
+R = line.split("|")[1]
+G = line.split("|")[2]
+B = line.split("|")[3]
+print t
+print R
+print G
+print B
+
+##while line:
+##    print line
+##    line = f.readline()
+##f.close()
 ##print data 
 
 #reads the most recent line in the file
