@@ -8,7 +8,7 @@ import colorsys
 from PIL import Image
 
 # (1) Import the file to be analyzed!
-img_file = Image.open("kombuchatest.jpg")
+img_file = Image.open("small.jpg")
 img = img_file.load()
 
 # (2) Construct a blank matrix representing the pixels in the image
