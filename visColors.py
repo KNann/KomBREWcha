@@ -53,8 +53,6 @@ for h in hues:
     colours.append([r, g, b])
 
 #NOT FROM SOURCE CODE
-#initialize input file
-f = open('file', 'w')
 
 colorCeiling = len(colours)
 
@@ -81,9 +79,14 @@ if (colorRange != 0) :
 else:
   avgRGB = colours[0]
 
-RGBString = '[' + str(avgRGB[0]) + ', ' + str(avgRGB[1]) + ', ' + str(avgRGB[2]) + ']'
+#RGBString = '[' + str(avgRGB[0]) + ', ' + str(avgRGB[1]) + ', ' + str(avgRGB[2]) + ']'
+RGBString = ''+str(avgRGB[0])+' '+str(avgRGB[1])+' '+str(avgRGB[2])+'\r'
+# Append to input file
+# f = open('file', 'w')
+# f.write(RGBString)
+with open("colorsLog.txt", "a") as myfile:
+  myfile.write(RGBString)
 
-f.write(RGBString)
 
 
 # ( )   Plot the graph!
