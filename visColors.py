@@ -8,7 +8,7 @@ import colorsys
 from PIL import Image
 
 # (1) Import the file to be analyzed!
-img_file = Image.open("test.jpg")
+img_file = Image.open("thedress.jpg")
 img = img_file.load()
 
 # (2) Construct a blank matrix representing the pixels in the image
@@ -23,20 +23,21 @@ for x in xrange(0, xs):
     [r, g, b] = img[x, y]
 
     # ( )  Normalize pixel color values
-    r /= 255.0
-    g /= 255.0
-    b /= 255.0
+    # r /= 255.0
+    # g /= 255.0
+    # b /= 255.0
 
     # ( )  Convert RGB color to HSV
     [h, s, v] = colorsys.rgb_to_hsv(r, g, b)
     if h not in hues:
       hues[h] = {}
-    if v not in hues[h]:
-      hues[h][v] = 1
-    else:
-      if hues[h][v] < max_intensity:
-        hues[h][v] += 1
+      if v not in hues[h]:
+        hues[h][v] = 1
+      else:
+        if hues[h][v] < max_intensity:
+          hues[h][v] += 1
 
+# print(hues)
 # ( )   Decompose the hues tree into a set of dimensional arrays we can use with matplotlib
 h_ = []
 v_ = []
@@ -51,13 +52,46 @@ for h in hues:
     [r, g, b] = colorsys.hsv_to_rgb(h, 1, v)
     colours.append([r, g, b])
 
-# ( )   Plot the graph!
-fig = plt.figure()
-ax = p3.Axes3D(fig)
-ax.scatter(h_, v_, i, s=5, c=colours, lw=0)
+#NOT FROM SOURCE CODE
+#initialize input file
+f = open('file', 'w')
 
-ax.set_xlabel('Hue')
-ax.set_ylabel('Value')
-ax.set_zlabel('Intensity')
-fig.add_axes(ax)
-plt.show()
+colorCeiling = len(colours)
+
+# you can modify these value for whatever given range that you want 
+colorMin = colorCeiling / 3
+colorMax = 2 * colorCeiling / 3 
+colorRange = colorMax - colorMin
+
+avgR = 0 
+avgG = 0
+avgB = 0
+
+# sum of RGB values for a specified range
+for i in range(colorCeiling):
+  if colorMin <= i <= colorMax:
+    avgR += colours[i][0]
+    avgB += colours[i][1]
+    avgG += colours[i][2]
+
+
+#find the average RGB value for a given section and write it to your input file
+if (colorRange != 0) :
+  avgRGB = [avgR / colorRange, avgG / colorRange, avgB / colorRange]
+else:
+  avgRGB = colours[0]
+
+RGBString = '[' + str(avgRGB[0]) + ', ' + str(avgRGB[1]) + ', ' + str(avgRGB[2]) + ']'
+
+f.write(RGBString)
+
+
+# ( )   Plot the graph!
+# fig = plt.figure()
+# ax = p3.Axes3D(fig)
+# ax.scatter(h_, v_, i, s=5, c=colours, lw=0)
+# ax.set_xlabel('Hue')
+# ax.set_ylabel('Value')
+# ax.set_zlabel('Intensity')
+# fig.add_axes(ax)
+# plt.show()
