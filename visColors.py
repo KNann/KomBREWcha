@@ -8,7 +8,7 @@ import colorsys
 from PIL import Image
 
 # (1) Import the file to be analyzed!
-img_file = Image.open("MatureBrew.jpg")
+img_file = Image.open("kombuchatest.jpg")
 img = img_file.load()
 
 # (2) Construct a blank matrix representing the pixels in the image
@@ -94,7 +94,7 @@ with open("colorsLog.txt", "a") as myfile:
 
 
 # ( )   Plot the graph!
-# fig = plt.figure()
+# fig = plt.figure()p;l
 # ax = p3.Axes3D(fig)
 # ax.scatter(h_, v_, i, s=5, c=colours, lw=0)
 # ax.set_xlabel('Hue')
