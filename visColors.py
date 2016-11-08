@@ -8,7 +8,7 @@ import colorsys
 from PIL import Image
 
 # (1) Import the file to be analyzed!
-img_file = Image.open("small.jpg")
+img_file = Image.open("MatureBrew.jpg")
 img = img_file.load()
 
 # (2) Construct a blank matrix representing the pixels in the image
@@ -84,9 +84,17 @@ RGBString = '|'+str(avgRGB[0])+'|'+str(avgRGB[1])+'|'+str(avgRGB[2])+'\n'
 
 # Append to input file
 import datetime
-time = str(datetime.datetime.now())
+import time
+t = datetime.datetime.now().replace(microsecond=0)
+dt = str(t)
+t1 = t.timetuple()
+dec_time = time.mktime(t1)
+batchtime = str(dec_time)
+timeString = dt+'|'+batchtime
+##time_tuple = datetime.datetime.strptime(time, "%Y-%m-%d %H:%M:%S")
+##print(time_tuple)
 with open("colorsLog.txt", "a") as myfile:
-  myfile.write(time)
+  myfile.write(timeString)
   myfile.write(RGBString)
 
 

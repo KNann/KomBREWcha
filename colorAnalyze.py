@@ -1,7 +1,6 @@
 #!/usr/bin/python
 
 import datetime
-from datetime import datetime
 import time
 import matplotlib.pyplot as plt
 
@@ -17,8 +16,20 @@ line = f.readline()
 while line:
     #print line
     tstr = line.split("|")[0]
-    time_tuple = datetime.datetime.strptime(tstr, "%Y-%m-%d %H:%M:%S")
+    time_tuple = datetime.datetime.timetuple(tstr, "%Y-%m-%d %H:%M:%S")
     print(time_tuple)
+##    dt = tstr.split(" ")[0]
+##    yr = float(dt.split("-")[0])
+##    mo = float(dt.split("-")[1])
+##    dy = float(dt.split("-")[2])
+##    tm = tstr.split(" ")[1]
+##    hr = float(tm.split(":")[0])
+##    mn = float(tm.split(":")[1])
+##    sc = float(tm.split(":")[2])
+    #calculate time in hours since yr 2000
+##    t = (yr-2000)*
+
+    
     Rstr = line.split("|")[1]
     R = float(Rstr)
     Rval.append(R)
