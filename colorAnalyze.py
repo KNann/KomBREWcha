@@ -13,8 +13,8 @@ f = open('colorsLog.txt')
 
 line = f.readline()
 
+#create time and RBG value vectors from colorsLog.txt
 while line:
-    #print line
     tstr = line.split("|")[1]
     t = float(tstr)
     time.append(t)
@@ -30,13 +30,14 @@ while line:
     line = f.readline()
 f.close()
 
+#convert timestamp data to time since start of batch
 t0 = time[0]
 i=0
 while i<len(time):
     time[i] = time[i]-t0
     i = i+1
 
-print time
+##print time
 ##print Rval
 ##print Gval
 
