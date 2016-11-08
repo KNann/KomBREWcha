@@ -84,7 +84,7 @@ RGBString = '|'+str(avgRGB[0])+'|'+str(avgRGB[1])+'|'+str(avgRGB[2])+'\n'
 
 # Append to input file
 import datetime
-time = '['+str(datetime.datetime.now())+'] '
+time = str(datetime.datetime.now())
 with open("colorsLog.txt", "a") as myfile:
   myfile.write(time)
   myfile.write(RGBString)

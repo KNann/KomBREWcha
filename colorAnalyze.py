@@ -1,5 +1,10 @@
 #!/usr/bin/python
 
+import datetime
+from datetime import datetime
+import time
+import matplotlib.pyplot as plt
+
 time = []
 Rval = []
 Gval = []
@@ -11,9 +16,9 @@ line = f.readline()
 
 while line:
     #print line
-##    t = line.split("|")[0]
-##    
-##    time.append(t)
+    tstr = line.split("|")[0]
+    time_tuple = datetime.datetime.strptime(tstr, "%Y-%m-%d %H:%M:%S")
+    print(time_tuple)
     Rstr = line.split("|")[1]
     R = float(Rstr)
     Rval.append(R)
@@ -27,24 +32,25 @@ while line:
 f.close()
  
 print time
-print Rval
-print Gval
+##print Rval
+##print Gval
 
 Rlast = Rval[-1]
 Glast = Gval[-1]
-print Rlast
-print Glast
+##print Rlast
+##print Glast
 
 complete = 0
 
 Rthresh = 60
-Gthresh = 75
+Gthresh = 85
 if Rlast < Rthresh:
     complete = 1
+    
 elif Glast > Gthresh:
     complete = 1
 
-print complete
+##print complete
 
 #reads the most recent line in the file
 # by | delimiters:
@@ -56,6 +62,9 @@ print complete
 
 
 # ( )   Plot the graph!
+##plt.plot(time,Rval)
+##plt.gcf().autofmt_xdate()
+##plt.show
 # fig = plt.figure()
 # ax = p3.Axes3D(fig)
 # ax.scatter(h_, v_, i, s=5, c=colours, lw=0)
