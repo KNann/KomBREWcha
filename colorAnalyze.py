@@ -16,7 +16,7 @@ line = f.readline()
 #create time and RBG value vectors from colorsLog.txt
 while line:
     tstr = line.split("|")[1]
-    t = float(tstr)
+    t = float(tstr)/(3600*24)
     time.append(t)
     Rstr = line.split("|")[2]
     R = float(Rstr)
@@ -37,9 +37,9 @@ while i<len(time):
     time[i] = time[i]-t0
     i = i+1
 
-##print time
-##print Rval
-##print Gval
+print time
+print Rval
+print Gval
 
 Rlast = Rval[-1]
 Glast = Gval[-1]
@@ -68,9 +68,6 @@ elif Glast > Gthresh:
 
 
 # ( )   Plot the graph!
-##plt.plot(time,Rval)
-##plt.gcf().autofmt_xdate()
-##plt.show
 # fig = plt.figure()
 # ax = p3.Axes3D(fig)
 # ax.scatter(h_, v_, i, s=5, c=colours, lw=0)
