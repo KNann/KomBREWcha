@@ -11,3 +11,4 @@ cd KomBREWcha
 
 ./img_capture.sh
 ./visColors.py
+./colorAnalyze.py

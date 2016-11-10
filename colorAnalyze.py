@@ -58,8 +58,6 @@ elif Glast > Gthresh:
 ##print complete
 
 import numpy as np
-#import mpl_toolkits.mplot3d.axes3d as p3
-#import matplotlib.pyplot as plt
 import pylab as pl
 
 pl.plot(time, Rval, 'r')
@@ -70,13 +68,4 @@ pl.ylabel('R and G levels')
 pl.savefig('Batch Progress.png')
 pl.show()
 
-# ( )   Plot the graph!
-# fig = plt.figure()
-# ax = p3.Axes3D(fig)
-# ax.scatter(h_, v_, i, s=5, c=colours, lw=0)
-# ax.set_xlabel('Hue')
-# ax.set_ylabel('Value')
-# ax.set_zlabel('Intensity')
-# fig.add_axes(ax)
-# plt.show()
 
