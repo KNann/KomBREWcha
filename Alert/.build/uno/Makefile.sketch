@@ -3,12 +3,12 @@
 
 
 
-.build/uno/src/Alert/Alert.cpp : src/Alert/Alert.ino
-	@mkdir -p .build/uno/src/Alert
-	@echo [93msrc/Alert/Alert.ino[0m
+.build/uno/src/sketch/sketch.cpp : src/sketch/sketch.ino
+	@mkdir -p .build/uno/src/sketch
+	@echo [93msrc/sketch/sketch.ino[0m
 	@/usr/local/bin/ino preproc  -o $@ $^
 
 
-all : .build/uno/src/Alert/Alert.cpp
+all : .build/uno/src/sketch/sketch.cpp
 	@true
 

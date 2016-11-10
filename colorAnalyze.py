@@ -49,12 +49,9 @@ Glast = Gval[-1]
 
 complete = 0
 
-Rthresh = 60
-Gthresh = 85
-if Rlast < Rthresh:
-    complete = 1
-    
-elif Glast > Gthresh:
+#Rthresh = 60
+#Gthresh = 85
+if Rlast < Glast:
     complete = 1
 
 ##print complete

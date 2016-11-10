@@ -2,7 +2,7 @@
 #include <Adafruit_CircuitPlayground.h>
 void setup();
 void loop();
-#line 1 "src/Alert/Alert.ino"
+#line 1 "src/Alert.ino"
 //#include <Adafruit_CircuitPlayground.h>
 
 int complete=1;

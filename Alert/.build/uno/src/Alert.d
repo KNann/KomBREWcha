@@ -1,4 +1,4 @@
-.build/uno/src/Alert/Alert.d .build/uno/src/Alert/Alert.o: .build/uno/src/Alert/Alert.cpp \
+.build/uno/src/Alert.d .build/uno/src/Alert.o: .build/uno/src/Alert.cpp \
  /usr/share/arduino/hardware/arduino/cores/arduino/Arduino.h \
  /usr/share/arduino/hardware/arduino/cores/arduino/binary.h \
  /usr/share/arduino/hardware/arduino/cores/arduino/WCharacter.h \
