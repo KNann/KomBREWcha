@@ -12,6 +12,8 @@ f = open('colorsLog.txt')
 
 line = f.readline()
 
+tstart = line.split("|")[0]
+
 #create time and RBG value vectors from colorsLog.txt
 while line:
     tstr = line.split("|")[1]
@@ -57,15 +59,24 @@ elif Glast > Gthresh:
 
 ##print complete
 
+##Graph Results
 import numpy as np
 import pylab as pl
 
 pl.plot(time, Rval, 'r')
 pl.plot(time, Gval, 'g')
-pl.title('Red and Green color value in batch over time')
+
+# Format graph
+FileName = 'Batch Started: '+tstart
+pl.title('Batch Progress')
 pl.xlabel('time (days)')
 pl.ylabel('R and G levels')
-pl.savefig('Batch Progress.png')
-pl.show()
+
+# save graph image in specific folder
+import os
+fld = '/home/pi/KomBREWcha/Batch_Progress_Graphs'
+if not os.path.isdir(fld): os.makedirs(fld)
+pl.savefig(os.path.join(fld, FileName))
+# pl.show()
 
 
