@@ -1,0 +1,14 @@
+
+
+
+
+
+.build/uno/src/Alert/Alert.cpp : src/Alert/Alert.ino
+	@mkdir -p .build/uno/src/Alert
+	@echo [93msrc/Alert/Alert.ino[0m
+	@/usr/local/bin/ino preproc  -o $@ $^
+
+
+all : .build/uno/src/Alert/Alert.cpp
+	@true
+

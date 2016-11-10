@@ -8,6 +8,10 @@
 cd ~
 cd KomBREWcha
 
-raspistill -v -vf -hf -o "kombucha.jpg"
+raspistill -v -vf -hf -o "kombucha1.jpg"
+raspistill -v -vf -hf -o "kombucha2.jpg"
+raspistill -v -vf -hf -o "kombucha3.jpg"
 
-convert kombucha.jpg -resize 328x246 kombuchasmall.jpg
+convert kombucha1.jpg -resize 328x246 kombuchasmall1.jpg
+convert kombucha2.jpg -resize 328x246 kombuchasmall2.jpg
+convert kombucha3.jpg -resize 328x246 kombuchasmall3.jpg
