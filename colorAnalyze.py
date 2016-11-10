@@ -2,7 +2,6 @@
 
 import datetime
 import time
-import matplotlib.pyplot as plt
 
 time = []
 Rval = []
@@ -58,14 +57,18 @@ elif Glast > Gthresh:
 
 ##print complete
 
-#reads the most recent line in the file
-# by | delimiters:
-### first column: date stamp
-### second column: R value
-### third column: G value
-### fourth column: B value
+import numpy as np
+#import mpl_toolkits.mplot3d.axes3d as p3
+#import matplotlib.pyplot as plt
+import pylab as pl
 
-
+pl.plot(time, Rval, 'r')
+pl.plot(time, Gval, 'g')
+pl.title('Red and Green color value in batch over time')
+pl.xlabel('time (days)')
+pl.ylabel('R and G levels')
+pl.savefig('Batch Progress.png')
+pl.show()
 
 # ( )   Plot the graph!
 # fig = plt.figure()
