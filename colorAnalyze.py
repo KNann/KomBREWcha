@@ -54,7 +54,7 @@ complete = 0
 if Rlast < Glast:
     complete = 1
 
-##print complete
+print complete
 
 ##Graph Results
 import numpy as np
