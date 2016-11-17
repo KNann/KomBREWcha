@@ -1,4 +1,5 @@
 PFont f;
+PImage img;
 import java.io.*;
 import java.util.*;
 import processing.serial.*;
@@ -94,7 +95,10 @@ void mousePressed() {
   //run driver.sh if Take Measurement is pressed
   if (takeOver) {
     statusColor = color(237,226,30); //yellow
+    fill(statusColor);
+    ellipse(400,350,130,130);
     exec("/home/pi/KomBREWcha/driver.sh");
+    delay(30000);
     
     //change status indicator color based on result
     String done[] = loadStrings("/home/pi/KomBREWcha/complete.txt");
@@ -107,7 +111,10 @@ void mousePressed() {
   //run new-batch.sh if Start New Batch is pressed
   if (newOver) {
     statusColor = color(237,226,30); //yellow
+    fill(statusColor);
+    ellipse(400,350,130,130);
     exec("/home/pi/KomBREWcha/new-batch.sh");
+    delay(30000);
     
     //change status indicator color based on result
     String done[] = loadStrings("/home/pi/KomBREWcha/complete.txt");
@@ -118,7 +125,11 @@ void mousePressed() {
     }
   }
   if (seeOver) {
-    statusColor = color(247,19,19); //red
+    statusColor = color(237,226,30); //yellow
+    img = loadImage("/home/pi/KomBREWcha/Batch_Progress_Graphs/Batch Started: 2016-11-17 01:13:12.png");
+    image(img, 0, 0);
+    delay(10000);
+  
   }
   
 }
@@ -130,4 +141,9 @@ boolean overRect(int x, int y, int w, int h) {
   } else {
     return false;
   }  
+}
+
+void delay(int delay) {
+  int time = millis();
+  while(millis() - time <= delay);
 }
