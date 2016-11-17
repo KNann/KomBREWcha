@@ -85,7 +85,9 @@ void update(int x, int y) {
     
   //anywhere else
   } else {
-    takeOver = newOver = seeOver = false;
+    takeOver = false;
+    newOver = false;
+    seeOver = false;
   }
 }
 
@@ -126,9 +128,10 @@ void mousePressed() {
   }
   if (seeOver) {
     statusColor = color(237,226,30); //yellow
-    img = loadImage("/home/pi/KomBREWcha/Batch_Progress_Graphs/Batch Started: 2016-11-17 01:13:12.png");
-    image(img, 0, 0);
+    img = loadImage("/home/pi/KomBREWcha/Batch_Progress_Graphs/Batch Started: 2016-11-17 01:34:12.png");
+    image(img, 0, 0, img.width/2, img.height/2);
     delay(10000);
+//    img.exit();
   
   }
   
