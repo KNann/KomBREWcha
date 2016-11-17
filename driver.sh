@@ -9,8 +9,8 @@
 cd ~
 cd KomBREWcha
 
-#./img_capture.sh
-#./visColors.py
+./img_capture.sh
+./visColors.py
 var=`./colorAnalyze.py | tail -1`
 #echo $var
 

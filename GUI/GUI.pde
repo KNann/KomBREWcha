@@ -1,5 +1,6 @@
 PFont f;
 import java.io.*;
+import java.util.*;
 import processing.serial.*;
 
 boolean takeOver = false;
@@ -12,7 +13,7 @@ size (800, 480);
 statusColor = color(247,19,19);
 
 // Create font for text
-printArray(PFont.list());
+//printArray(PFont.list());
 f = createFont("Times New Roman", 24);
 textFont(f);
 }
@@ -88,22 +89,15 @@ void update(int x, int y) {
 }
 
 void mousePressed() {
-  File workingDir = new File("/home/pi/KomBREWcha");
+  //run driver.sh if Take Measurement is pressed
   if (takeOver) {
     statusColor = color(237,226,30);
-    
-    //try to run driver!
-    try {
-    Process p = Runtime.getRuntime().exec("./driver.sh", null, workingDir);
-    }
-    
-    catch (Exception e) {
-      println("Error running command!");
-      println(e);
-    }
+    exec("/home/pi/KomBREWcha/driver.sh");
   }
+  //run new-batch.sh if Start New Batch is pressed
   if (newOver) {
     statusColor = color(34,237,30);
+    exec("/home/pi/KomBREWcha/new-batch.sh");
   }
   if (seeOver) {
     statusColor = color(247,19,19);
