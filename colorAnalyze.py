@@ -44,8 +44,8 @@ print Gval
 
 Rlast = Rval[-1]
 Glast = Gval[-1]
-##print Rlast
-##print Glast
+print Rlast
+print Glast
 
 complete = 0
 

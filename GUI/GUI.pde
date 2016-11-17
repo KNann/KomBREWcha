@@ -89,18 +89,36 @@ void update(int x, int y) {
 }
 
 void mousePressed() {
+  String Readystr = "1";
+  //String Waitstr = "Not Ready";
   //run driver.sh if Take Measurement is pressed
   if (takeOver) {
-    statusColor = color(237,226,30);
+    statusColor = color(237,226,30); //yellow
     exec("/home/pi/KomBREWcha/driver.sh");
+    
+    //change status indicator color based on result
+    String done[] = loadStrings("/home/pi/KomBREWcha/complete.txt");
+    if (Readystr.equals(done[0]) == true) {
+      statusColor = color(34,237,30); //green
+    } else {
+      statusColor = color(247,19,19); //red
+    }
   }
   //run new-batch.sh if Start New Batch is pressed
   if (newOver) {
-    statusColor = color(34,237,30);
+    statusColor = color(237,226,30); //yellow
     exec("/home/pi/KomBREWcha/new-batch.sh");
+    
+    //change status indicator color based on result
+    String done[] = loadStrings("/home/pi/KomBREWcha/complete.txt");
+    if (Readystr.equals(done[0]) == true) {
+      statusColor = color(34,237,30); //green
+    } else {
+      statusColor = color(247,19,19); //red
+    }
   }
   if (seeOver) {
-    statusColor = color(247,19,19);
+    statusColor = color(247,19,19); //red
   }
   
 }

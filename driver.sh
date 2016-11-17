@@ -12,12 +12,6 @@ cd KomBREWcha
 ./img_capture.sh
 ./visColors.py
 var=`./colorAnalyze.py | tail -1`
-#echo $var
+echo $var > complete.txt
 
-if [ $var==1 ]
-then
-    echo "complete"
-else
-    echo "not ready"
-fi
 
