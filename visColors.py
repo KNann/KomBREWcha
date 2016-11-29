@@ -8,6 +8,8 @@ import colorsys
 from PIL import Image
 
 # (1) Import the files to be analyzed!
+##we noticed the readings were inconsistent between images of the same batch
+##but were more consistent when averaged between three images
 img_file1 = Image.open("kombuchasmall1.jpg")
 img1 = img_file1.load()
 
@@ -19,6 +21,7 @@ img3 = img_file3.load()
 
 img_list = [img1, img2, img3]
 trial_avg = [0, 0, 0]
+##the process for one image is from open source code and edited to accomodate three images
 # (2) Construct a blank matrix representing the pixels in the image
 for img in img_list:
   [xs, ys] = img_file1.size #all images are the same size
@@ -66,6 +69,7 @@ for img in img_list:
   colorCeiling = len(colours)
 
 # you can modify these value for whatever given range that you want 
+##right not we are taking the middle third of the image
   colorMin = colorCeiling / 3
   colorMax = 2 * colorCeiling / 3 
   colorRange = colorMax - colorMin
@@ -88,6 +92,7 @@ for img in img_list:
   else:
     avgRGB = colours[0]
 
+#store the total RGB averages as 1/3 of the average for each of the three images
   trial_avg[0] = trial_avg[0] + avgRGB[0]/3
   trial_avg[1] = trial_avg[1] + avgRGB[1]/3
   trial_avg[2] = trial_avg[2] + avgRGB[2]/3
@@ -102,14 +107,18 @@ RGBString = '|'+Rstr+'|'+Gstr+'|'+Bstr+'\n'
 # Append to input file
 import datetime
 import time
+
+#get the current time without microseconds
 t = datetime.datetime.now().replace(microsecond=0)
-dt = str(t)
+dt = str(t) #string of M-D-Y time format
 t1 = t.timetuple()
 dec_time = time.mktime(t1)
-batchtime = str(dec_time)
+batchtime = str(dec_time) #time as a number of seconds for graphing purposes
 timeString = dt+'|'+batchtime
 ##time_tuple = datetime.datetime.strptime(time, "%Y-%m-%d %H:%M:%S")
 ##print(time_tuple)
+
+#write the time stamp, graphable time, and  RGB values to colorsLog.txt
 with open("colorsLog.txt", "a") as myfile:
   myfile.write(timeString)
   myfile.write(RGBString)
