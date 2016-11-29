@@ -6,7 +6,6 @@ import processing.serial.*;
 
 boolean takeOver = false;
 boolean newOver = false;
-boolean seeOver = false;
 color statusColor;
 
 void setup () {
@@ -24,19 +23,23 @@ void draw () {
   
   //Take Measurement button
   fill(66,182,244);
-  rect(200,100,400,100);
+  rect(20,100,360,100);
   
   //Status Indicator
   fill(statusColor);
-  ellipse(400,350,130,130);
+  ellipse(275,350,130,130);
   
   //New batch button
   fill(66,182,244);
-  rect(105,285,130,130);
+  rect(20,285,130,130);
   
-  //See batch progress button
-  fill(66,182,244);
-  rect(565,285,130,130);
+  
+  String picpath = "/home/pi/KomBREWcha/Batch_Progress_Graphs/Batch Started: 2016-11-17 01:24:09.png";
+  String log[] = loadStrings("/home/pi/KomBREWcha/colorsLog.txt");
+  String init = log[0];
+  String t0 = split(init,'|');
+  img = loadImage(picpath);
+  image(img, 420, 50, width/2.2, height/1.3);
   
   //Screen text in function below
   textAlign(CENTER);
@@ -52,13 +55,11 @@ void drawType(float x) {
   //line(x, 0, x, 65);
   //line(x, 220, x, height);
   fill(0);
-  text("KomBREWcha",x,50);
-  text("Take Measurement",x,156);
-  text("Batch Status:",x,260);
-  text("Start New",x-230,340);
-  text("Batch",x-230,370);
-  text("See Batch",x+230,340);
-  text("Progress",x+230,370);
+  text("KomBREWcha",x-200,50);
+  text("Take Measurement",x-200,156);
+  text("Batch Status:",280,260);
+  text("Start New",85,340);
+  text("Batch",85,370);
   
 }
 
@@ -66,28 +67,19 @@ void drawType(float x) {
 void update(int x, int y) {
   
   //Take Measurement button
-  if ( overRect(200,100,400,100)) {
+  if ( overRect(20,100,360,100)) {
     takeOver = true;
     newOver = false;
-    seeOver = false;
     
   //Start New Batch button
-  } else if ( overRect(105,285,130,130)) {
+  } else if ( overRect(20,285,130,130)) {
     takeOver = false;
     newOver = true;
-    seeOver = false;
-    
-  //See Batch Progress button
-  } else if ( overRect(565,285,130,130)) {
-    takeOver = false;
-    newOver = false;
-    seeOver = true;
     
   //anywhere else
   } else {
     takeOver = false;
     newOver = false;
-    seeOver = false;
   }
 }
 
@@ -98,7 +90,7 @@ void mousePressed() {
   if (takeOver) {
     statusColor = color(237,226,30); //yellow
     fill(statusColor);
-    ellipse(400,350,130,130);
+    ellipse(275,350,130,130);
     exec("/home/pi/KomBREWcha/driver.sh");
     delay(30000);
     
@@ -114,7 +106,7 @@ void mousePressed() {
   if (newOver) {
     statusColor = color(237,226,30); //yellow
     fill(statusColor);
-    ellipse(400,350,130,130);
+    ellipse(275,350,130,130);
     exec("/home/pi/KomBREWcha/new-batch.sh");
     delay(30000);
     
@@ -126,14 +118,7 @@ void mousePressed() {
       statusColor = color(247,19,19); //red
     }
   }
-  if (seeOver) {
-    statusColor = color(237,226,30); //yellow
-    img = loadImage("/home/pi/KomBREWcha/Batch_Progress_Graphs/Batch Started: 2016-11-17 01:34:12.png");
-    image(img, 0, 0, img.width/2, img.height/2);
-    delay(10000);
-//    img.exit();
   
-  }
   
 }
 
