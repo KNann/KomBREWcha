@@ -7,10 +7,13 @@ import processing.serial.*;
 boolean takeOver = false;
 boolean newOver = false;
 color statusColor;
+String picpath;
 
 void setup () {
 size (800, 480); 
 statusColor = color(247,19,19);
+
+picpath = "/home/pi/KomBREWcha/Batch_Progress_Graphs/";
 
 // Create font for text
 //printArray(PFont.list());
@@ -32,13 +35,18 @@ void draw () {
   //New batch button
   fill(66,182,244);
   rect(20,285,130,130);
-  
-  
-  String picpath = "/home/pi/KomBREWcha/Batch_Progress_Graphs/Batch Started: 2016-11-17 01:24:09.png";
+ 
+  //read first line from colorsLog.txt and extract timestamp
   String log[] = loadStrings("/home/pi/KomBREWcha/colorsLog.txt");
   String init = log[0];
-  String t0 = split(init,'|');
-  img = loadImage(picpath);
+  init = init.substring(0,19);
+  
+  //create graph title from timestamp
+  String title = "Batch Started: "+init+".png";
+  String fullpath = picpath+title;
+  
+  //load image of graph onto GUI
+  img = loadImage(fullpath);
   image(img, 420, 50, width/2.2, height/1.3);
   
   //Screen text in function below
